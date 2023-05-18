@@ -17,9 +17,9 @@ class PageOne extends StatelessWidget {
         color: Color(kDarkPurple.value),
         child: Column(
           children: [
-            const HeightSpacer(size: 70),
+            const HeightSpacer(size: 55),
             Image.asset("assets/images/page1.png"),
-            const HeightSpacer(size: 40),
+            const HeightSpacer(size: 25),
             Column(
               children: [
                 ReusableText(
