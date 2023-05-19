@@ -3,7 +3,21 @@ import 'package:joboard/constants/app_constants.dart';
 import 'package:joboard/views/common/app_style.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+  const CustomTextField(
+      {super.key,
+      required this.controller,
+      required this.hintText,
+      required this.keyboardType,
+      this.validator,
+      this.suffixIcon,
+      this.obscureText});
+
+  final TextEditingController controller;
+  final String hintText;
+  final TextInputType keyboardType;
+  final String? Function(String?)? validator;
+  final Widget? suffixIcon;
+  final bool? obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +25,7 @@ class CustomTextField extends StatelessWidget {
       color: Color(kLightGrey.value),
       child: TextFormField(
         keyboardType: keyboardType,
-        obscureText: obscureText,
+        obscureText: obscureText ?? false,
         decoration: InputDecoration(
             hintText: hintText,
             suffixIcon: suffixIcon,
@@ -36,6 +50,7 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         cursorHeight: 25,
         style: appstyle(14, Color(kDark.value), FontWeight.w500),
+        validator: validator,
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
+import 'package:joboard/views/common/custom_btn.dart';
 import 'package:joboard/views/common/custom_textfield.dart';
 import 'package:joboard/views/common/exports.dart';
 import 'package:joboard/views/common/height_spacer.dart';
@@ -30,23 +31,21 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: CustomAppBar(
-          text: "Login",
-          child: GestureDetector(
-            onTap: () {
-              Get.back();
-            },
-            child: const Icon(Icons.arrow_back),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(50),
+          child: CustomAppBar(
+            text: "Login",
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: const Icon(Icons.arrow_back),
+            ),
           ),
         ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: ListView(padding: EdgeInsets.zero, children: [
             const HeightSpacer(size: 50),
             ReusableText(
               text: "Welcome Back!",
@@ -58,11 +57,52 @@ class _LoginPageState extends State<LoginPage> {
               style: appstyle(15, Color(kDarkBlue.value), FontWeight.w600),
             ),
             const HeightSpacer(size: 50),
-            CustomTextField(),
-          ],
-        ),
-      ),
-    );
+            CustomTextField(
+              controller: email,
+              keyboardType: TextInputType.emailAddress,
+              hintText: "Email",
+              validator: (email) {
+                if (email!.isEmpty || !email.contains("@")) {
+                  return "Please enter a valid email";
+                } else {
+                  return null;
+                }
+              },
+            ),
+            const HeightSpacer(size: 20),
+            CustomTextField(
+              controller: email,
+              keyboardType: TextInputType.emailAddress,
+              hintText: "Password",
+              validator: (password) {
+                if (password!.isEmpty || password.length < 7) {
+                  return "Please enter a valid password";
+                } else {
+                  return null;
+                }
+              },
+              suffixIcon: GestureDetector(
+                child: Icon(
+                  Icons.visibility,
+                  color: Color(kDark.value),
+                ),
+              ),
+            ),
+            const HeightSpacer(size: 10),
+            Align(
+              alignment: Alignment.centerRight,
+              child: GestureDetector(
+                onTap: null,
+                child: ReusableText(
+                  text: "Register",
+                  style: appstyle(14, Color(kDark.value), FontWeight.w500),
+                ),
+              ),
+            ),
+            const HeightSpacer(size: 50),
+            CustomButton(),
+          ]),
+        ));
     ;
   }
 }
