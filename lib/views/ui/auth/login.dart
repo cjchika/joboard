@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
+import 'package:joboard/views/common/custom_textfield.dart';
 import 'package:joboard/views/common/exports.dart';
 import 'package:joboard/views/common/height_spacer.dart';
 
@@ -50,7 +51,14 @@ class _LoginPageState extends State<LoginPage> {
             ReusableText(
               text: "Welcome Back!",
               style: appstyle(30, Color(kDark.value), FontWeight.w600),
-            )
+            ),
+            const HeightSpacer(size: 10),
+            ReusableText(
+              text: "Fill the details to login to your account.",
+              style: appstyle(15, Color(kDarkBlue.value), FontWeight.w600),
+            ),
+            const HeightSpacer(size: 50),
+            CustomTextField(),
           ],
         ),
       ),
