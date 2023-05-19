@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const HeightSpacer(size: 50),
-            CustomButton(),
+            CustomButton(onTap: () {}, text: "Login"),
           ]),
         ));
     ;
