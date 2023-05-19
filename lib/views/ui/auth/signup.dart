@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:joboard/views/common/app_bar.dart';
+
+import '../../../constants/app_constants.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
