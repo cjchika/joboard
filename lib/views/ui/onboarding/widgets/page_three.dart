@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:joboard/constants/app_constants.dart';
 import 'package:joboard/views/common/app_style.dart';
 import 'package:joboard/views/common/custom_outline_btn.dart';
 import 'package:joboard/views/common/height_spacer.dart';
+import 'package:joboard/views/ui/auth/login.dart';
+import 'package:joboard/views/ui/auth/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../common/reusable_text.dart';
 
@@ -40,14 +45,20 @@ class PageThree extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CustomOutlineBtn(
-                  onTap: () {},
+                  onTap: () async {
+                    final SharedPreferences prefs = await SharedPreferences.getInstance();
+                    await prefs.setBool('entrypoint', true);
+                    Get.to(() => const LoginPage());
+                  },
                   text: "Login",
                   width: width * 0.4,
                   height: height * 0.06,
                   color: Color(kLight.value),
                 ),
                 GestureDetector(
-                  onTap: null,
+                  onTap: () {
+                    Get.to(() => const RegistrationPage());
+                  },
                   child: Container(
                     width: width * 0.4,
                     height: height * 0.06,
