@@ -11,6 +11,14 @@ class SignUpNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool passwordValidator(String password) {
+    if(password.isEmpty) return false;
+    String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+
+    RegExp regex = RegExp(pattern);
+    return regex.hasMatch(password);
+  }
+
 // triggered when the login button is clicked to show the loading widget
 //   bool _processing = false;
 //
@@ -33,13 +41,6 @@ class SignUpNotifier extends ChangeNotifier {
 //
 //   final signupFormKey = GlobalKey<FormState>();
 //
-//   bool passwordValidator(String password) {
-//   if (password.isEmpty) return false;
-//   String pattern =
-//       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-//   RegExp regex = RegExp(pattern);
-//   return regex.hasMatch(password);
-// }
 //
 //   bool validateAndSave() {
 //     final form = signupFormKey.currentState;

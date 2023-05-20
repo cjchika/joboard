@@ -22,8 +22,7 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
- 
- final TextEditingController name = TextEditingController();
+  final TextEditingController name = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
@@ -34,15 +33,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
     password.dispose();
     super.dispose();
   }
- 
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<SignUpNotifier>(builder: (context, loginNotifier, child) {
+    return Consumer<SignUpNotifier>(builder: (context, signupNotifier, child) {
       return Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(50),
             child: CustomAppBar(
-              text: "Register",
+              text: "Sign Up",
               child: GestureDetector(
                 onTap: () {
                   Get.back();
@@ -56,15 +55,28 @@ class _RegistrationPageState extends State<RegistrationPage> {
             child: ListView(padding: EdgeInsets.zero, children: [
               const HeightSpacer(size: 50),
               ReusableText(
-                text: "Welcome Back!",
+                text: "Hello, Welcome!",
                 style: appstyle(30, Color(kDark.value), FontWeight.w600),
               ),
               const HeightSpacer(size: 10),
               ReusableText(
-                text: "Fill the details to login to your account.",
+                text: "Fill in the details to create an account.",
                 style: appstyle(15, Color(kDarkBlue.value), FontWeight.w600),
               ),
               const HeightSpacer(size: 50),
+              CustomTextField(
+                controller: name,
+                keyboardType: TextInputType.text,
+                hintText: "Full Name",
+                validator: (name) {
+                  if (name!.isEmpty) {
+                    return "Please enter your name.";
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              const HeightSpacer(size: 20),
               CustomTextField(
                 controller: email,
                 keyboardType: TextInputType.emailAddress,
@@ -82,20 +94,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 controller: password,
                 keyboardType: TextInputType.emailAddress,
                 hintText: "Password",
-                obscureText: loginNotifier.obscureText,
+                obscureText: signupNotifier.obscureText,
                 validator: (password) {
-                  if (password!.isEmpty || password.length < 7) {
+                  if (signupNotifier.passwordValidator(password ?? '')) {
                     return "Please enter a valid password";
-                  } else {
-                    return null;
                   }
+                  return null;
                 },
                 suffixIcon: GestureDetector(
                   onTap: () {
-                    loginNotifier.obscureText = !loginNotifier.obscureText;
+                    signupNotifier.obscureText = !signupNotifier.obscureText;
                   },
                   child: Icon(
-                    loginNotifier.obscureText
+                    signupNotifier.obscureText
                         ? Icons.visibility
                         : Icons.visibility_off,
                     color: Color(kDark.value),
@@ -116,19 +127,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
               const HeightSpacer(size: 50),
-              CustomButton(onTap: () {}, text: "Register"),
+              CustomButton(onTap: () {}, text: "Sign Up"),
             ]),
           ));
     });
   }
-  }
-
-
-
-
-
-
-
-
-
-
+}
