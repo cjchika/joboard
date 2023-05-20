@@ -9,6 +9,7 @@ import 'package:joboard/views/common/drawer/draw_widget.dart';
 import 'package:joboard/views/common/heading_widget.dart';
 import 'package:joboard/views/common/height_spacer.dart';
 import 'package:joboard/views/common/search.dart';
+import 'package:joboard/views/common/vertical_tile.dart';
 import 'package:joboard/views/ui/jobs/widgets/horizontal_tile.dart';
 import 'package:joboard/views/ui/search/searchpage.dart';
 
@@ -73,6 +74,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const HeightSpacer(size: 20),
                 HeadingWidget(text: "Recently Added", onTap: () {}),
+                const HeightSpacer(size: 20),
+                const VerticalTile()
               ],
             ),
           ),
