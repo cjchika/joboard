@@ -82,7 +82,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
   Widget drawerItem(IconData icon, String text, int index, Color color) {
     return GestureDetector(
-      onTap: null,
+      onTap: () {
+        widget.indexSetter(index);
+      },
       child: Container(
         margin: EdgeInsets.only(left: 20.w, bottom: 20.h),
         child: Row(

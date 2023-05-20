@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joboard/views/common/drawer/drawer_srceen.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:joboard/controllers/exports.dart';
-import 'package:joboard/views/common/app_style.dart';
-import 'package:joboard/views/common/reusable_text.dart';
-import 'package:joboard/views/common/width_spacer.dart';
+import 'package:joboard/views/ui/bookmarks/bookmarks.dart';
+import 'package:joboard/views/ui/chat/chatpage.dart';
+import 'package:joboard/views/ui/device_mgt/devices_info.dart';
+// import 'package:joboard/views/common/app_style.dart';
+// import 'package:joboard/views/common/reusable_text.dart';
+// import 'package:joboard/views/common/width_spacer.dart';
 import 'package:joboard/views/ui/homepage.dart';
 import 'package:provider/provider.dart';
 
@@ -37,16 +40,16 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Widget currentScreen() {
-    var zoomNotifier = Provider.of(context);
+    var zoomNotifier = Provider.of<ZoomNotifier>(context);
     switch (zoomNotifier.currentIndex) {
       case 0:
         return const HomePage();
       case 1:
-        return const HomePage();
+        return const ChatsPage();
       case 2:
-        return const HomePage();
+        return const BookMarkPage();
       case 3:
-        return const HomePage();
+        return const DeviceManagement();
       default:
         return const HomePage();
     }
