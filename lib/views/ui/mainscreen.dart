@@ -13,6 +13,7 @@ import 'package:joboard/views/ui/homepage.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/app_constants.dart';
+import 'auth/profile.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -50,6 +51,8 @@ class _MainScreenState extends State<MainScreen> {
         return const BookMarkPage();
       case 3:
         return const DeviceManagement();
+      case 4:
+        return const ProfilePage();
       default:
         return const HomePage();
     }
