@@ -93,7 +93,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               icon,
               color: color,
             ),
-            const WidthSpacer(size: 12),
+            const WidthSpacer(width: 12),
             ReusableText(
               text: text,
               style: appstyle(12, color, FontWeight.bold),
