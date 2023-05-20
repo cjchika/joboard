@@ -9,6 +9,7 @@ import 'package:joboard/views/common/drawer/draw_widget.dart';
 import 'package:joboard/views/common/heading_widget.dart';
 import 'package:joboard/views/common/height_spacer.dart';
 import 'package:joboard/views/common/search.dart';
+import 'package:joboard/views/ui/jobs/widgets/horizontal_tile.dart';
 import 'package:joboard/views/ui/search/searchpage.dart';
 
 class HomePage extends StatefulWidget {
@@ -60,6 +61,16 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const HeightSpacer(size: 30),
                 HeadingWidget(text: "Popular Jobs", onTap: () {}),
+                const HeightSpacer(size: 20),
+                SizedBox(
+                  height: height * 0.28,
+                  child: ListView.builder(
+                      itemCount: 4,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return JobHorizontalTile(onTap: () {});
+                      }),
+                ),
                 const HeightSpacer(size: 20),
                 HeadingWidget(text: "Recently Added", onTap: () {}),
               ],
