@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joboard/views/common/drawer/drawer_srceen.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:joboard/controllers/exports.dart';
 import 'package:joboard/views/ui/bookmarks/bookmarks.dart';
 import 'package:joboard/views/ui/chat/chatpage.dart';
 import 'package:joboard/views/ui/device_mgt/devices_info.dart';
-// import 'package:joboard/views/common/app_style.dart';
-// import 'package:joboard/views/common/reusable_text.dart';
-// import 'package:joboard/views/common/width_spacer.dart';
 import 'package:joboard/views/ui/homepage.dart';
 import 'package:provider/provider.dart';
 
@@ -34,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
         borderRadius: 30,
         showShadow: true,
         angle: 0.0,
-        slideWidth: 250,
+        slideWidth: 200,
         menuBackgroundColor: Color(kLightBlue.value),
       );
     });
