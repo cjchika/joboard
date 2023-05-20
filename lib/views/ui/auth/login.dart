@@ -8,6 +8,7 @@ import 'package:joboard/views/common/custom_textfield.dart';
 import 'package:joboard/views/common/exports.dart';
 import 'package:joboard/views/common/height_spacer.dart';
 import 'package:joboard/views/ui/auth/signup.dart';
+import 'package:joboard/views/ui/mainscreen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants/app_constants.dart';
@@ -112,7 +113,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const HeightSpacer(size: 50),
-              CustomButton(onTap: () {}, text: "Login"),
+              CustomButton(onTap: () {
+                Get.to(() => const MainScreen());
+              }, text: "Login"),
             ]),
           ));
     });

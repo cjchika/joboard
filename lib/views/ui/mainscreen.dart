@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:joboard/views/common/drawer/drawer_srceen.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:joboard/controllers/exports.dart';
-import 'package:joboard/views/common/drawer/drawer_srceen.dart';
+import 'package:joboard/views/common/app_style.dart';
+import 'package:joboard/views/common/reusable_text.dart';
+import 'package:joboard/views/common/width_spacer.dart';
+import 'package:joboard/views/ui/homepage.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/app_constants.dart';
@@ -32,8 +37,18 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Widget currentScreen() {
-
+    var zoomNotifier = Provider.of(context);
+    switch (zoomNotifier.currentIndex) {
+      case 0:
+        return const HomePage();
+      case 1:
+        return const HomePage();
+      case 2:
+        return const HomePage();
+      case 3:
+        return const HomePage();
+      default:
+        return const HomePage();
+    }
   }
 }
-
-
