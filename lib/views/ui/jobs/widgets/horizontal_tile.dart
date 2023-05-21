@@ -27,12 +27,12 @@ class JobHorizontalTile extends StatelessWidget {
               Row(
                 children: [
                   const CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/user.png"),
+                    backgroundImage: AssetImage("assets/images/Facebook.png"),
                   ),
-                  const WidthSpacer(width: 15),
+                  const WidthSpacer(width: 12),
                   ReusableText(
-                    text: "Google",
-                    style: appstyle(24, Color(kDark.value), FontWeight.w600),
+                    text: "Facebook",
+                    style: appstyle(20, Color(kDark.value), FontWeight.w600),
                   ),
                 ],
               ),
