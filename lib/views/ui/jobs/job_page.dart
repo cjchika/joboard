@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:joboard/constants/app_constants.dart';
 import 'package:joboard/views/common/app_bar.dart';
+import 'package:joboard/views/common/custom_outline_btn.dart';
+import 'package:joboard/views/common/exports.dart';
+import 'package:joboard/views/common/height_spacer.dart';
 
 class JobPage extends StatefulWidget {
   const JobPage({super.key, required this.title, required this.id});
@@ -20,17 +24,76 @@ class _JobPageState extends State<JobPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(50.h),
-          child: CustomAppBar(
-            text: widget.title,
-            actions: [Padding(
+        preferredSize: Size.fromHeight(50.h),
+        child: CustomAppBar(
+          text: widget.title,
+          actions: const [
+            Padding(
               padding: EdgeInsets.only(right: 13),
               child: Icon(Icons.bookmark_add_rounded),
-            )],
-              child: GestureDetector(
+            )
+          ],
+          child: GestureDetector(
             onTap: () => Get.back(),
             child: const Icon(CupertinoIcons.arrow_left),
-          ))),
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: Stack(
+          children: [
+            ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                const HeightSpacer(size: 30),
+                Container(
+                  width: width,
+                  height: height * 0.27,
+                  color: Color(kLightGrey.value),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const CircleAvatar(
+                        backgroundImage: AssetImage("assets/images/user.png"),
+                      ),
+                      const HeightSpacer(size: 10),
+                      ReusableText(
+                        text: "Senior Flutter Developer",
+                        style:
+                            appstyle(22, Color(kDark.value), FontWeight.w600),
+                      ),
+                      const HeightSpacer(size: 5),
+                      ReusableText(
+                        text: "Abuja, Nigeria",
+                        style: appstyle(
+                            16, Color(kDarkGrey.value), FontWeight.normal),
+                      ),
+                      const HeightSpacer(size: 15),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 50),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomOutlineBtn(
+                                width: width * 0.26,
+                                height: height*0.04,
+                                color2: Color(kLight.value),
+                                text: "Full-time",
+                                onTap: () {},
+                                color: Color(kOrange.value)),
+                            Row(children: [],)
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
