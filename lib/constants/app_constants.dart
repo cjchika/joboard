@@ -29,7 +29,6 @@ List<String> requirements = [
 String desc =
     "Flutter Developer is responsible for running and designing product application features across multiple devices across platforms. Flutter is Google's UI toolkit for building beautiful, natively compiled apps for mobile, web, and desktop from a single codebase. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source.";
 
-
 List<String> skills = [
   "Node JS",
   "Java SpringBoot",
