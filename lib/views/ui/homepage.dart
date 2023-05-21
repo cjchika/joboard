@@ -10,6 +10,7 @@ import 'package:joboard/views/common/heading_widget.dart';
 import 'package:joboard/views/common/height_spacer.dart';
 import 'package:joboard/views/common/search.dart';
 import 'package:joboard/views/common/vertical_tile.dart';
+import 'package:joboard/views/ui/jobs/job_page.dart';
 import 'package:joboard/views/ui/jobs/widgets/horizontal_tile.dart';
 import 'package:joboard/views/ui/search/searchpage.dart';
 
@@ -69,7 +70,9 @@ class _HomePageState extends State<HomePage> {
                       itemCount: 4,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return JobHorizontalTile(onTap: () {});
+                        return JobHorizontalTile(onTap: () {
+                          Get.to(() => const JobPage(title: "Facebook", id: "ID2E",));
+                        });
                       }),
                 ),
                 const HeightSpacer(size: 20),
