@@ -204,14 +204,16 @@ class _ProfilePageState extends State<ProfilePage> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                       child: ListView.builder(
-                          itemCount: 5,
+                        physics: const NeverScrollableScrollPhysics(),
+                          itemCount: skills.length,
                           itemBuilder: (context, index) {
+                          final skill = skills[index];
                             return Container(
                               padding: EdgeInsets.symmetric(horizontal: 10.w),
                               width: width,
                               height: height * 0.06,
                               child: ReusableText(
-                                text: "Flutter & Dart",
+                                text: skill,
                                 style: appstyle(
                                     16, Color(kDark.value), FontWeight.normal),
                               ),
