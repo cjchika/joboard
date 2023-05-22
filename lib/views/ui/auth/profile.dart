@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:joboard/constants/app_constants.dart';
 import 'package:joboard/views/common/app_style.dart';
@@ -49,12 +50,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       ClipRRect(
                         borderRadius:
-                        const BorderRadius.all(Radius.circular(20)),
+                            const BorderRadius.all(Radius.circular(20)),
                         child: CachedNetworkImage(
                           width: 60.w,
                           height: 100.h,
                           imageUrl:
-                          "https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg",
+                              "https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg",
                         ),
                       ),
                       const WidthSpacer(width: 20),
@@ -136,14 +137,90 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
-                Positioned(top: 2.h,
+                Positioned(
+                    top: 2.h,
                     right: 5.w,
-                    child: GestureDetector(onTap: () {}, child: ReusableText(
-                      text: "Edit",
-                      style: appstyle(
-                          16, Color(kOrange.value), FontWeight.w500),
-                    ),))
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: ReusableText(
+                        text: "Edit",
+                        style:
+                            appstyle(16, Color(kOrange.value), FontWeight.w500),
+                      ),
+                    ))
               ],
+            ),
+            const HeightSpacer(size: 20),
+            Container(
+              padding: EdgeInsets.only(left: 8.w),
+              width: width,
+              height: height * 0.06,
+              color: Color(kLightGrey.value),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: ReusableText(
+                    text: "info@cjchika.com",
+                    style: appstyle(16, Color(kDark.value), FontWeight.normal)),
+              ),
+            ),
+            const HeightSpacer(size: 20),
+            Container(
+              padding: EdgeInsets.only(left: 8.w),
+              width: width,
+              height: height * 0.06,
+              color: Color(kLightGrey.value),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  children: [
+                    SvgPicture.asset("assets/icons/usa.svg",
+                        width: 20.w, height: 22.h),
+                    const WidthSpacer(width: 12),
+                    ReusableText(
+                        text: "+2347012153525",
+                        style: appstyle(
+                            16, Color(kDark.value), FontWeight.normal)),
+                  ],
+                ),
+              ),
+            ),
+            const HeightSpacer(size: 20),
+            Container(
+              color: Color(kLightGrey.value),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: ReusableText(
+                      text: "Skills",
+                      style: appstyle(16, Color(kDark.value), FontWeight.w600),
+                    ),
+                  ),
+                  const HeightSpacer(size: 5),
+                  SizedBox(
+                    height: height * 0.5,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                      child: ListView.builder(
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10.w),
+                              width: width,
+                              height: height * 0.06,
+                              child: ReusableText(
+                                text: "Flutter & Dart",
+                                style: appstyle(
+                                    16, Color(kDark.value), FontWeight.normal),
+                              ),
+                            );
+                          }),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
