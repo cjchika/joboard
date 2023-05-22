@@ -49,12 +49,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       ClipRRect(
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
+                        const BorderRadius.all(Radius.circular(20)),
                         child: CachedNetworkImage(
                           width: 60.w,
                           height: 100.h,
                           imageUrl:
-                              "https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg",
+                          "https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg",
                         ),
                       ),
                       const WidthSpacer(width: 20),
@@ -101,6 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Container(
                   width: width,
                   height: height * 0.12,
+                  color: Color(kLightGrey.value),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -114,10 +115,34 @@ class _ProfilePageState extends State<ProfilePage> {
                           color: Colors.red,
                           size: 40,
                         ),
-                      )
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ReusableText(
+                            text: "Resume from Joboard",
+                            style: appstyle(
+                                18, Color(kDark.value), FontWeight.w500),
+                          ),
+                          ReusableText(
+                            text: "Joboard Resume",
+                            style: appstyle(
+                                16, Color(kDarkGrey.value), FontWeight.w500),
+                          )
+                        ],
+                      ),
+                      const WidthSpacer(width: 1)
                     ],
                   ),
-                )
+                ),
+                Positioned(top: 2.h,
+                    right: 5.w,
+                    child: GestureDetector(onTap: () {}, child: ReusableText(
+                      text: "Edit",
+                      style: appstyle(
+                          16, Color(kOrange.value), FontWeight.w500),
+                    ),))
               ],
             )
           ],
