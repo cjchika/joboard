@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:joboard/views/common/app_style.dart';
+import 'package:joboard/views/common/height_spacer.dart';
 import 'package:joboard/views/common/reusable_text.dart';
 import 'package:joboard/views/ui/search/widgets/custom_field.dart';
 
@@ -39,9 +40,10 @@ class _SearchPageState extends State<SearchPage> {
         padding: EdgeInsets.all(20.h),
         child: Column(children: [
           Image.asset("assets/images/optimized_search.png"),
+          const HeightSpacer(size: 20),
           ReusableText(
               text: "Start searching for jobs",
-              style: appstyle(20, Color(kDark.value), FontWeight.w700))
+              style: appstyle(20, Color(kDark.value), FontWeight.w600))
         ]),
       ),
     );
