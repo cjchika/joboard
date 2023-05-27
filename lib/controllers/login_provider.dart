@@ -11,6 +11,15 @@ class LoginNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool? _entrypoint;
+
+  bool get entrypoint => _entrypoint??false;
+
+  set entrypoint(bool newState) {
+    entrypoint = newState;
+    notifyListeners();
+  }
+
 }
 
 
