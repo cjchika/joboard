@@ -35,17 +35,18 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LoginNotifier>(builder: (context, loginNotifier, child) {
+      loginNotifier.getPrefs();
       return Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(50),
             child: CustomAppBar(
               text: "Login",
-              child: GestureDetector(
+              child: loginNotifier.entrypoint && loginNotifier.loggedIn? GestureDetector(
                 onTap: () {
                   Get.back();
                 },
                 child: const Icon(Icons.arrow_back),
-              ),
+              ):const SizedBox.shrink(),
             ),
           ),
           body: Padding(
