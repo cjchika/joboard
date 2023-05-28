@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:joboard/controllers/exports.dart';
+import 'package:joboard/models/request/auth/login_model.dart';
 import 'package:joboard/views/common/custom_btn.dart';
 import 'package:joboard/views/common/custom_textfield.dart';
 import 'package:joboard/views/common/exports.dart';
 import 'package:joboard/views/common/height_spacer.dart';
 import 'package:joboard/views/ui/auth/signup.dart';
-import 'package:joboard/views/ui/mainscreen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants/app_constants.dart';
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
               const HeightSpacer(size: 20),
               CustomTextField(
                 controller: password,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 hintText: "Password",
                 obscureText: loginNotifier.obscureText,
                 validator: (password) {
@@ -115,11 +115,21 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const HeightSpacer(size: 50),
               CustomButton(onTap: () {
-                Get.to(() => const MainScreen());
+               if(loginNotifier.validateAndSave()) {
+                 LoginModel model = LoginModel(email: email.text, password: password.text);
+                 loginNotifier.userLogin(model);
+               } else{
+                 Get.snackbar(
+                   "Sign in Failed",
+                   "Please confirm your credentials",
+                   colorText: Color(kLight.value),
+                   backgroundColor: Colors.red,
+                   icon: const Icon(Icons.add_alert),
+                 );
+               }
               }, text: "Login"),
             ]),
           ));
     });
-    ;
   }
 }

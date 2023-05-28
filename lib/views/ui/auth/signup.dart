@@ -36,6 +36,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   @override
   Widget build(BuildContext context) {
+    var loginNotifier = Provider.of<LoginNotifier>(context);
+
     return Consumer<SignUpNotifier>(builder: (context, signupNotifier, child) {
       return Scaffold(
           appBar: PreferredSize(
@@ -127,7 +129,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
               const HeightSpacer(size: 50),
-              CustomButton(onTap: () {}, text: "Sign Up"),
+              CustomButton(onTap: () {
+                loginNotifier.firstTime = !loginNotifier.firstTime;
+              }, text: "Sign Up"),
             ]),
           ));
     });
