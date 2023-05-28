@@ -120,11 +120,11 @@ class _LoginPageState extends State<LoginPage> {
                  loginNotifier.userLogin(model);
                } else{
                  Get.snackbar(
-                   "Sign in Failed",
-                   "Please confirm your credentials",
+                   "Sign in Failed.",
+                   "Please confirm your credentials.",
                    colorText: Color(kLight.value),
                    backgroundColor: Colors.red,
-                   icon: const Icon(Icons.add_alert),
+                   icon: const Icon(Icons.add_alert, color: Colors.white),
                  );
                }
               }, text: "Login"),

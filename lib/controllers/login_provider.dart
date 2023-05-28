@@ -58,12 +58,14 @@ class LoginNotifier extends ChangeNotifier {
   bool validateAndSave() {
     final form = loginFormKey.currentState;
 
-    if (form!.validate()) {
+    if(form != null) {
+      form.validate();
       form.save();
       return true;
     } else {
       return false;
     }
+
   }
 
   userLogin(LoginModel model) {
