@@ -115,6 +115,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const HeightSpacer(size: 50),
               CustomButton(onTap: () {
+                print(email.text);
+                print(password.text);
                if(loginNotifier.validateAndSave()) {
                  LoginModel model = LoginModel(email: email.text, password: password.text);
                  loginNotifier.userLogin(model);
